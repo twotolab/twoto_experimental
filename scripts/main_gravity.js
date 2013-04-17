@@ -55,7 +55,7 @@ function tick(event) {
 	moon2.y += moon2.vy;
 
 	drawLine();
-		
+		/*
 	var luck = randomBetween(1, 200);
 	if (luck > 190) {
 		console.log("luck!");
@@ -72,10 +72,13 @@ function tick(event) {
 			moon2.vy += randomBetween(-10, 10);
 		}
 	}
-	
+	*/
 
 	stage.update();
-	containerHandDrawing.updateCache("source-overlay");	}
+	containerHandDrawing.updateCache("source-overlay");
+	containerHandDrawing.clear();
+	
+	}
 
 function drawLine() {
 	
