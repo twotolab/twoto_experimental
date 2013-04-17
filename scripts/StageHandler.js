@@ -23,6 +23,12 @@
 	StageHandlder.prototype.getCenterY = function() {
 		return Localcanvas.height / 2;
 	}
+	StageHandlder.prototype.getWidth = function() {
+		return Localcanvas.width;
+	}
+	StageHandlder.prototype.getHeight = function() {
+		return Localcanvas.height;
+	}
 	StageHandlder.prototype.update = function() {
 		this.dispatchEvent('update');
 	}

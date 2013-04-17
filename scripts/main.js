@@ -1,5 +1,6 @@
 var fps = 50;
 var circle;
+var triangle;
 var stage;
 var tweenCircle;
 var stageHandler;
@@ -30,6 +31,11 @@ function resizeUpdate(event) {
 
 function drawElements(event) {
 	circle = new Circle("black", 200);
+	triangle = new Triangle("black", 200);
+	stage.addChild(triangle);
+	//
+	triangle.x=700;
+	triangle.y=100;
 	//
 	var circleX = stageHandler.getCenterX() - circle.width / 2;
 	var circleY = stageHandler.getCenterY() - circle.height / 2;
