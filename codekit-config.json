@@ -1,16 +1,98 @@
 {
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
-  "creatorBuild" : "8265",
+  "creatorBuild" : "8283",
   "files" : {
-    "\/lib\/tweenjs-0.4.0.min.js" : {
+    "\/img\/circlePict.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/tweenjs-0.4.0.min.js",
+      "inputAbbreviatedPath" : "\/img\/circlePict.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/circlePict.png",
+      "initialSize" : 3291,
+      "fileType" : 8192
+    },
+    "\/basic\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/basic\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/index_gravity.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index_gravity.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/lib\/easeljs-0.6.0.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/easeljs-0.6.0.min.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/lib\/tweenjs-0.4.0.min-min.js",
+      "outputAbbreviatedPath" : "\/lib\/easeljs-0.6.0.min-min.js",
+      "fileType" : 64
+    },
+    "\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/scripts\/elements\/Triangle.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/elements\/Triangle.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/elements\/Triangle-min.js",
+      "fileType" : 64
+    },
+    "\/scripts\/main_gravity_3.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/main_gravity_3.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/main_gravity_3-min.js",
+      "fileType" : 64
+    },
+    "\/scripts\/StageHandler.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/StageHandler.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/StageHandler-min.js",
+      "fileType" : 64
+    },
+    "\/scripts\/main_gravity.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/main_gravity.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/main_gravity-min.js",
       "fileType" : 64
     },
     "\/styles\/styles.css" : {
@@ -22,12 +104,76 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/index.html" : {
+    "\/index_gravity_3.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/index.html",
+      "inputAbbreviatedPath" : "\/index_gravity_3.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/basic\/scripts\/basic.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/basic\/scripts\/basic.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/basic\/scripts\/basic-min.js",
+      "fileType" : 64
+    },
+    "\/lib\/tweenjs-0.4.0.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/tweenjs-0.4.0.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/lib\/tweenjs-0.4.0.min-min.js",
+      "fileType" : 64
+    },
+    "\/scripts\/utils.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/utils.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/utils-min.js",
+      "fileType" : 64
+    },
+    "\/scripts\/elements\/Particle.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/elements\/Particle.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/elements\/Particle-min.js",
+      "fileType" : 64
+    },
+    "\/scripts\/elements\/Circle.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scripts\/elements\/Circle.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/scripts\/elements\/Circle-min.js",
+      "fileType" : 64
+    },
+    "\/index_gravity_2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index_gravity_2.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -42,15 +188,15 @@
       "outputAbbreviatedPath" : "\/scripts\/main-min.js",
       "fileType" : 64
     },
-    "\/lib\/easeljs-0.6.0.min.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
+    "\/scripts\/main_gravity_2.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/easeljs-0.6.0.min.js",
+      "inputAbbreviatedPath" : "\/scripts\/main_gravity_2.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/lib\/easeljs-0.6.0.min-min.js",
+      "outputAbbreviatedPath" : "\/scripts\/main_gravity_2-min.js",
       "fileType" : 64
     }
   },

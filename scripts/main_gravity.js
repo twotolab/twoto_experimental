@@ -1,22 +1,44 @@
-var fps = 70;
+var fps = 100;
+var timeframe =30000; // in seconds//
 var earth;
 var moon;
 var moon2;
 var drawingLine;
 var drawingLine2;
-var strokestyleLine = 10;
-var strokestyleLine2 = 10;
+var strokestyleLine = 1;
+var strokestyleLine2 = 1;
 var stage;
 var tweenearth;
 var stageHandler;
 var lastX;
 var lastY;
+var last2X;
+var last2Y;
 var luck;
 var containerHandDrawing;
+var fpsLabel;
+
+var colorLines;
+var actualColor;
+var colorOne;
+var colorTwo;
+var colorCounter;
+var timer;
+
+var paused;
 
 function init() {
+	
+	colorCounter =1;
+	colorOne =randomColor();
+	colorTwo =randomColor();
+	//
 	stage = new createjs.Stage("canvasObject");
 	stage.enableMouseOver();
+	//
+	setUpFpsCounter();
+	//
+		
 	stageHandler = new StageHandlder(stage);
 	stageHandler.addEventListener("setupReady", setupMain);
 	stageHandler.setup();
@@ -24,10 +46,20 @@ function init() {
 	// stage.addChild(new createjs.Shape()).setTransform(100,100).graphics.f("red").dc(0,0,50);
 	stageHandler.addEventListener("update", resizeUpdate);
 	//
+	
 	createjs.Ticker.setFPS(fps);
 	//
 }
+function setUpFpsCounter(){
+	// add a text object to output the current FPS:
+            fpsLabel = new createjs.Text("-- fps", "bold 18px BebasNeueRegular", "#FFF");
+            stage.addChild(fpsLabel);
+            fpsLabel.x = 20;
+            fpsLabel.y = 10;
+	
+}
 
+            
 function handleComplete(tween) {
 	//Tween complete
 	console.log("fini");
@@ -40,7 +72,6 @@ function resizeUpdate(event) {
 
 function setupMain(event) {
 	drawElements();
-	containerHandDrawing.cache(0,0,w,h);
 }
 
 function tick(event) {
@@ -55,56 +86,122 @@ function tick(event) {
 	moon2.y += moon2.vy;
 
 	drawLine();
-		/*
+
 	var luck = randomBetween(1, 200);
 	if (luck > 190) {
-		console.log("luck!");
+		//console.log("luck!");
 		if (Math.abs(moon.vx) < 2) {
-			moon.vx += randomBetween(-10, 10);
+			moon.vx += randomBetween(-5, 5);
 		}
 		if (Math.abs(moon.vy) < 2) {
-			moon.vy += randomBetween(-10, 10);
+			moon.vy += randomBetween(-5, 5);
 		}
 		if (Math.abs(moon2.vx) < 2) {
-			moon2.vx += randomBetween(-10, 10);
+			moon2.vx += randomBetween(-5, 5);
 		}
 		if (Math.abs(moon2.vy) < 2) {
-			moon2.vy += randomBetween(-10, 10);
+			moon2.vy += randomBetween(-5, 5);
 		}
 	}
-	*/
+	/*
+	if (luck > 20) {
+		
+		if(strokestyleLine>=1){
+			//console.log("strokestyleLine luck! strokestyleLine: "+strokestyleLine);
+			strokestyleLine +=randomBetween(-1, 1);
+		}
+		if(strokestyleLine <1 ){
+			
+			strokestyleLine =1;
+		}
+		if(strokestyleLine >20){
+			
+			strokestyleLine -=1;
+		}
+				if(strokestyleLine2>=1){
+			//console.log("strokestyleLine luck! strokestyleLine: "+strokestyleLine);
+			strokestyleLine2 +=randomBetween(-1, 1);
+		}
+		if(strokestyleLine2 <1 ){
+			
+			strokestyleLine2 =1;
+		}
+		if(strokestyleLine2 >20){
+			
+			strokestyleLine2 -=1;
+		}
+	}
+//	*/
 
 	stage.update();
-	containerHandDrawing.updateCache("source-overlay");
-	containerHandDrawing.clear();
+	timer =createjs.Ticker.getTime();
+	fpsLabel.text = Math.round(createjs.Ticker.getMeasuredFPS()) + " fps - "+Math.round((timeframe-timer)*0.001)+" sec left";
 	
+	//paused = createjs.Ticker.getPaused();
+	
+	if( timer >= timeframe){
+		console.log("--------------------timer End: "+timer);
+		//createjs.Ticker.setPaused(true);
+		
+		togglePause();
+		fpsLabel.text ="end";
+		stage.update();
+		//createjs.Ticker.setPaused(true);
 	}
-
+	}
+	function togglePause() {
+		
+		paused = !createjs.Ticker.getPaused();
+		createjs.Ticker.setPaused(true);
+		//document.getElementById("pauseBtn").value = paused ? "unpause" : "pause";
+}
 function drawLine() {
-	
+
+	actualColor = makeGradientColor(colorOne,colorTwo,colorCounter);
+	//console.log("actualColor.cssColor :"+actualColor.cssColor);
+	colorCounter +=0.1;
+	if(colorCounter >= 100){	
+		colorTwo =colorOne;
+		colorOne =randomColor();
+		colorCounter =1;
+	}	
+
+		
+
 	if (drawingLine == null) {
 		drawingLine = new createjs.Shape();
 		containerHandDrawing.addChild(drawingLine);
-		drawingLine.graphics.setStrokeStyle(strokestyleLine);
-		drawingLine.graphics.beginStroke("black");
-		drawingLine.graphics.moveTo(moon.x, moon.y);
+		drawingLine.cache(0,0,stageHandler.getWidth(),stageHandler.getHeight());
 		console.log("drawingLine!: ");
 	}
-
+	drawingLine.graphics.setStrokeStyle(strokestyleLine,1);
+	drawingLine.graphics.beginStroke(actualColor.cssColor);
+	drawingLine.graphics.moveTo(lastX, lastY);
 	drawingLine.graphics.lineTo(moon.x, moon.y);
+	//
+	drawingLine.updateCache("source-overlay");
+	drawingLine.graphics.clear();
 	
 	
 	if (drawingLine2 == null) {
 		drawingLine2 = new createjs.Shape();
 		containerHandDrawing.addChild(drawingLine2);
-		drawingLine2.graphics.setStrokeStyle(strokestyleLine2);
-		drawingLine2.graphics.beginStroke("black");
-		drawingLine2.graphics.moveTo(moon2.x, moon2.y);
+		drawingLine2.cache(0,0,stageHandler.getWidth(),stageHandler.getHeight());
 		console.log("drawingLine2!: ");
 	}
+	drawingLine2.graphics.setStrokeStyle(strokestyleLine2,1);
+	drawingLine2.graphics.beginStroke(actualColor.cssColor);
+	drawingLine2.graphics.moveTo(last2X, last2Y);
 	drawingLine2.graphics.lineTo(moon2.x, moon2.y);
+	drawingLine2.updateCache("source-overlay");
+	drawingLine2.graphics.clear();
+	//drawingLine2.graphics.clear();
 	//*/
+	lastX = moon2.x;
+	lastY = moon2.y;
 	
+	last2X = moon.x;
+	last2Y = moon.y;
 }
 
 function gravitate(_attractor, _satellit) {
@@ -135,13 +232,13 @@ function drawElements() {
 	earth.y = earthY;
 	stage.addChild(earth);
 	
-	moon = new Particle("black", 5, randomBetween(-20, 20), randomBetween(-20, 20), 1);
+	moon = new Particle("black", 1, randomBetween(-20, 20), randomBetween(-20, 20), 1);
 	moon.x = stageHandler.getWidth() / 2 + randomBetween(-20, 20);
 	moon.y = stageHandler.getHeight() / 2 + randomBetween(-20, 20);
 	console.log("moon.vx :" + moon.vx);
 	stage.addChild(moon);
 	
-	moon2 = new Particle("black", 5, randomBetween(-20, 20), randomBetween(-20, 20), 1);
+	moon2 = new Particle("black", 1, randomBetween(-20, 20), randomBetween(-20, 20), 1);
 	moon2.x = stageHandler.getWidth() / 2 + randomBetween(-20, 20);
 	moon2.y = stageHandler.getHeight() / 2 + randomBetween(-20, 20);
 	console.log("moon2.vx :" + moon2.vx);
@@ -157,7 +254,8 @@ function drawElements() {
 	*/
 	//
 	//	createjs.Ticker.addEventListener("tick", stage);
-	createjs.Ticker.addEventListener("tick", tick);
+	//createjs.Ticker.addEventListener("tick", tick);
+	createjs.Ticker.addListener(tick, true);
 }
 
 function centerearth() {
@@ -171,11 +269,5 @@ function centerearth() {
 	}, 1000, createjs.Ease.cubicOut);
 }
 
-function randomBetween(min, max) {
-	if (min < 0) {
-		return min + Math.random() * (Math.abs(min) + max);
-	} else {
-		return min + Math.random() * max;
-	}
-}
+
 window.onload = init;
